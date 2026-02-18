@@ -29,6 +29,10 @@ from .gemini_nodes import (
 from .gemini_sam_bridge import Goutam_SAM_Bridge
 from .gemini_zoomer import Gemini_Detail_Zoomer
 
+from .gemini_translator import Gemini_Florence_Translator
+from .gemini_material import Gemini_Direct_Texture_Maker
+from .gemini_t2i import Gemini_TextToImage
+
 NODE_CLASS_MAPPINGS = {
     "Gemini_Ultimate_ImgGen": Gemini_Ultimate_ImgGen,
     "Gemini_Ultimate_Inpaint": Gemini_Ultimate_Inpaint,
@@ -40,6 +44,9 @@ NODE_CLASS_MAPPINGS = {
     "Gemini_Ultimate_VideoGen": Gemini_Ultimate_VideoGen,
     "Gemini_Ultimate_Vision": Gemini_Ultimate_Vision,
     "Goutam_SAM_Bridge": Goutam_SAM_Bridge,
+    "Gemini_Florence_Translator": Gemini_Florence_Translator,
+    "Gemini_Direct_Texture_Maker": Gemini_Direct_Texture_Maker,
+    "Gemini_TextToImage": Gemini_TextToImage,
 }
 
 NODE_DISPLAY_NAME_MAPPINGS = {
@@ -53,8 +60,12 @@ NODE_DISPLAY_NAME_MAPPINGS = {
     "Gemini_Ultimate_VideoGen": "🎬 Goutam_Nano_Suite Ultimate VideoGen",
     "Gemini_Ultimate_Vision": "👁️ Goutam_Nano_Suite Ultimate Vision",
     "Goutam_SAM_Bridge": "👁️ Goutam_Nano_Suite SAM Bridge",
+    "Gemini_Florence_Translator": "👁️ Gemini Florence Translator",
+    "Gemini_Direct_Texture_Maker": "💎 Gemini Direct Texture Maker",
+    "Gemini_TextToImage": "🖼️ Gemini Text to Image",
 }
 
 WEB_DIRECTORY = "./web"
 
 __all__ = ["NODE_CLASS_MAPPINGS", "NODE_DISPLAY_NAME_MAPPINGS", "WEB_DIRECTORY"]
+
