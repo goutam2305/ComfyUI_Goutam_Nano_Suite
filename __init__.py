@@ -15,6 +15,7 @@ Nodes:
   👁️  Goutam_Nano_Suite Ultimate Vision     – Multi‑image analysis / captioning
   💎  Goutam_Nano_Suite Texture Maker       – Texture generation
   🖼️  Goutam_Nano_Suite Text to Image       – Text-to-Image generation
+  🏰  ZenMode ArchViz All-In-One            – Visual Analysis & Scene Composition
 """
 
 from .gemini_architect import Gemini_Interior_Architect
@@ -29,8 +30,9 @@ from .gemini_nodes import (
 )
 from .gemini_zoomer import Gemini_Detail_Zoomer
 
-from .gemini_material import Goutam_Direct_Texture_Maker
 from .gemini_t2i import Goutam_TextToImage
+from .gemini_zenmode import ZenModeArchVizAllInOne
+from .texture_nodes import GoutamSeamlessTexturePro
 
 NODE_CLASS_MAPPINGS = {
     "Gemini_Ultimate_ImgGen": Gemini_Ultimate_ImgGen,
@@ -42,8 +44,9 @@ NODE_CLASS_MAPPINGS = {
     "Gemini_Interior_Architect": Gemini_Interior_Architect,
     "Gemini_Ultimate_VideoGen": Gemini_Ultimate_VideoGen,
     "Gemini_Ultimate_Vision": Gemini_Ultimate_Vision,
-    "Goutam_Direct_Texture_Maker": Goutam_Direct_Texture_Maker,
     "Goutam_TextToImage": Goutam_TextToImage,
+    "ZenModeArchVizAllInOne": ZenModeArchVizAllInOne,
+    "GoutamSeamlessTexturePro": GoutamSeamlessTexturePro,
 }
 
 NODE_DISPLAY_NAME_MAPPINGS = {
@@ -56,8 +59,9 @@ NODE_DISPLAY_NAME_MAPPINGS = {
     "Gemini_Interior_Architect": "📐 Goutam_Nano_Suite Interior Architect",
     "Gemini_Ultimate_VideoGen": "🎬 Goutam_Nano_Suite Ultimate VideoGen",
     "Gemini_Ultimate_Vision": "👁️ Goutam_Nano_Suite Ultimate Vision",
-    "Goutam_Direct_Texture_Maker": "💎 Goutam_Nano_Suite Direct Texture Maker",
     "Goutam_TextToImage": "🖼️ Goutam_Nano_Suite Text to Image",
+    "ZenModeArchVizAllInOne": "🏰 Goutam_Nano_Suite ZenMode All-In-One",
+    "GoutamSeamlessTexturePro": "💎 Goutam Texture Synthesizer (Pro)",
 }
 
 WEB_DIRECTORY = "./web"

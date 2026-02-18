@@ -29,3 +29,4 @@ You need a Google Gemini API key to use these nodes.
 *   **🛋️ Multi-Furniture**: Composition tool for furniture scenes.
 *   **💎 Direct Texture Maker**: AI Texture generation from reference or description.
 *   **🖼️ Text to Image**: Dedicated Text-to-Image generator.
+*   **🏰 ZenMode ArchViz All-In-One**: Visual Analysis & Scene Composition in one node.
