@@ -27,4 +27,5 @@ You need a Google Gemini API key to use these nodes.
 *   **🔧 Object Manipulator**: Remove or move objects with mask support.
 *   **🔍 Detail Zoomer**: High-res close-ups and re-photography.
 *   **🛋️ Multi-Furniture**: Composition tool for furniture scenes.
-*   **👁️ SAM Bridge**: Connects Vision analysis to Segment Anything Model (SAM).
+*   **💎 Direct Texture Maker**: AI Texture generation from reference or description.
+*   **🖼️ Text to Image**: Dedicated Text-to-Image generator.

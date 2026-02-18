@@ -1,7 +1,7 @@
 """
 ComfyUI Goutam Nano Suite — V2
 ──────────────────────────────────
-Register the 9 Ultimate nodes with ComfyUI.
+Register the Ultimate nodes with ComfyUI.
 
 Nodes:
   🖼️  Goutam_Nano_Suite Ultimate ImgGen     – Text‑to‑Image & Image‑to‑Image
@@ -13,7 +13,8 @@ Nodes:
   📐  Goutam_Nano_Suite Interior Architect  – Pro photography + lighting + layout
   🎬  Goutam_Nano_Suite Ultimate VideoGen   – Image → video via Veo
   👁️  Goutam_Nano_Suite Ultimate Vision     – Multi‑image analysis / captioning
-  👁️  Goutam_Nano_Suite SAM Bridge          – Vision Analysis → GroundingDINO Prompt
+  💎  Goutam_Nano_Suite Texture Maker       – Texture generation
+  🖼️  Goutam_Nano_Suite Text to Image       – Text-to-Image generation
 """
 
 from .gemini_architect import Gemini_Interior_Architect
@@ -26,12 +27,10 @@ from .gemini_nodes import (
     Gemini_Ultimate_VideoGen,
     Gemini_Ultimate_Vision,
 )
-from .gemini_sam_bridge import Goutam_SAM_Bridge
 from .gemini_zoomer import Gemini_Detail_Zoomer
 
-from .gemini_translator import Gemini_Florence_Translator
-from .gemini_material import Gemini_Direct_Texture_Maker
-from .gemini_t2i import Gemini_TextToImage
+from .gemini_material import Goutam_Direct_Texture_Maker
+from .gemini_t2i import Goutam_TextToImage
 
 NODE_CLASS_MAPPINGS = {
     "Gemini_Ultimate_ImgGen": Gemini_Ultimate_ImgGen,
@@ -43,10 +42,8 @@ NODE_CLASS_MAPPINGS = {
     "Gemini_Interior_Architect": Gemini_Interior_Architect,
     "Gemini_Ultimate_VideoGen": Gemini_Ultimate_VideoGen,
     "Gemini_Ultimate_Vision": Gemini_Ultimate_Vision,
-    "Goutam_SAM_Bridge": Goutam_SAM_Bridge,
-    "Gemini_Florence_Translator": Gemini_Florence_Translator,
-    "Gemini_Direct_Texture_Maker": Gemini_Direct_Texture_Maker,
-    "Gemini_TextToImage": Gemini_TextToImage,
+    "Goutam_Direct_Texture_Maker": Goutam_Direct_Texture_Maker,
+    "Goutam_TextToImage": Goutam_TextToImage,
 }
 
 NODE_DISPLAY_NAME_MAPPINGS = {
@@ -59,13 +56,10 @@ NODE_DISPLAY_NAME_MAPPINGS = {
     "Gemini_Interior_Architect": "📐 Goutam_Nano_Suite Interior Architect",
     "Gemini_Ultimate_VideoGen": "🎬 Goutam_Nano_Suite Ultimate VideoGen",
     "Gemini_Ultimate_Vision": "👁️ Goutam_Nano_Suite Ultimate Vision",
-    "Goutam_SAM_Bridge": "👁️ Goutam_Nano_Suite SAM Bridge",
-    "Gemini_Florence_Translator": "👁️ Gemini Florence Translator",
-    "Gemini_Direct_Texture_Maker": "💎 Gemini Direct Texture Maker",
-    "Gemini_TextToImage": "🖼️ Gemini Text to Image",
+    "Goutam_Direct_Texture_Maker": "💎 Goutam_Nano_Suite Direct Texture Maker",
+    "Goutam_TextToImage": "🖼️ Goutam_Nano_Suite Text to Image",
 }
 
 WEB_DIRECTORY = "./web"
 
 __all__ = ["NODE_CLASS_MAPPINGS", "NODE_DISPLAY_NAME_MAPPINGS", "WEB_DIRECTORY"]
-

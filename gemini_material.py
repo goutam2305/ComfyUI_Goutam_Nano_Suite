@@ -9,7 +9,7 @@ from .utils import (
     extract_images_from_response
 )
 
-class Gemini_Direct_Texture_Maker:
+class Goutam_Direct_Texture_Maker:
     def __init__(self):
         pass
     

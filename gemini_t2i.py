@@ -56,7 +56,8 @@ def _handle_api_error(exc: Exception, node_label: str):
     raise RuntimeError(f"Gemini API error: {msg}") from exc
 
 
-class Gemini_TextToImage:
+class Goutam_TextToImage:
+
     """
     Dedicated Text-to-Image generation node.
     Derived from Gemini_Ultimate_ImgGen but strictly for text-based generation.
@@ -183,5 +184,6 @@ class Gemini_TextToImage:
             return (make_blank_image_tensor(),)
 
         except Exception as exc:
-            _handle_api_error(exc, "Gemini_TextToImage")
+            _handle_api_error(exc, "Goutam_TextToImage")
+
             return (make_blank_image_tensor(),)
