@@ -24,8 +24,8 @@ from google.genai import types
 # Constants
 # ---------------------------------------------------------------------------
 RETRYABLE_KEYWORDS = ["rate limit", "timeout", "429", "503", "500", "connection", "timed out"]
-MAX_RETRIES = 3
-RETRY_BASE_DELAY = 1.0  # seconds
+MAX_RETRIES = 5
+RETRY_BASE_DELAY = 2.0  # seconds
 
 
 # ---------------------------------------------------------------------------

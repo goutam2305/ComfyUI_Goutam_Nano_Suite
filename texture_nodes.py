@@ -22,8 +22,7 @@ TEXTURE_MODELS = [
     "Imagen 3 (Standard)",
     "Imagen 3 Fast",
     "Imagen 3.0 v2 (Latest)",
-    "Gemini 2.0 Flash (Fastest)",
-    "Gemini 2.0 Pro (High Quality)",
+    "Gemini 2.5 Flash (Fastest)", 
     "Gemini 3 Pro (Preview)",
 ]
 
@@ -48,8 +47,7 @@ MODEL_MAPPING = {
     "Imagen 3 (Standard)": "imagen-3.0-generate-001",
     "Imagen 3 Fast": "imagen-3.0-fast-generate-001",
     "Imagen 3.0 v2 (Latest)": "imagen-3.0-generate-002",
-    "Gemini 2.0 Flash (Fastest)": "gemini-2.0-flash",
-    "Gemini 2.0 Pro (High Quality)": "gemini-2.0-pro-exp-02-05",
+    "Gemini 2.5 Flash (Fastest)": "gemini-2.5-flash-image", # Updated to -image
     "Gemini 3 Pro (Preview)": "gemini-3-pro-image-preview",
 }
 
@@ -157,11 +155,11 @@ class GoutamSeamlessTexturePro:
             if texture_type != "Auto-Detect":
                 analysis_prompt_text = f"[Material Type Hint: {texture_type}] " + analysis_prompt_text
 
-            print(f"[Texture Pro] Analyzing reference using Gemini 1.5 Pro...")
+            print(f"[Texture Pro] Analyzing reference using Gemini 3 Pro...")
             
             try:
-                # Use a strong vision model for analysis
-                vision_model = "gemini-1.5-pro" 
+                # Use a reliable vision model for analysis
+                vision_model = "gemini-3-pro-image-preview" 
                 vision_resp = client.models.generate_content(
                     model=vision_model,
                     contents=[analysis_prompt_text, pil_ref]
@@ -173,16 +171,17 @@ class GoutamSeamlessTexturePro:
                 material_description = f"High quality {texture_type if texture_type != 'Auto-Detect' else 'material'} texture"
 
             # 2. Synthesis Pass (Generation)
+            # Improved prompt to forcefully match the reference style
             master_prompt = (
-                f"Generate a SEAMLESS, TILEABLE TEXTURE MAP of {material_description}. "
-                "Style: Photorealistic, PBR Albedo Map. "
+                f"Create a seamless, tileable PBR texture map based on this description: {material_description}. "
+                "The texture MUST MATCH the visual style, color, and ruggedness of the reference description. "
                 "View: Orthographic 90-degree top-down. "
                 "Lighting: Flat, even, shadowless (Delighted). "
                 "Tiling: Perfectly seamless edges. "
                 "Resolution: High-fidelity micro-details."
             )
             
-            negative_prompt = "shadows, ambient occlusion, highlights, specular reflection, perspective, blur, vignetting"
+            negative_prompt = "shadows, ambient occlusion, highlights, specular reflection, perspective, blur, vignetting, mismatched colors, wrong scale"
             
             # Additional context for strictness
             if tileability_strictness > 0.8:
@@ -196,17 +195,20 @@ class GoutamSeamlessTexturePro:
             # Try/Catch for 4K fallback logic (simulated by upscaling logic below)
             # We define a function for generation to allow retries/fallbacks
             def generate_at_res(width, height):
-                # Validating input: The SDK types.ImageConfig likely doesn't support width/height directly 
-                # for the models we are using, or at least raises provided error.
-                # We revert to using aspect_ratio="1:1".
-                # For Gemini 3 Pro, we might be able to pass image_size via key, but let's stick to standard 1:1 first.
-                
+                # Map resolution string to API format
+                api_image_size = "1K" # Default
+                if target_dim == 2048:
+                    api_image_size = "2K" 
+                elif target_dim == 4096:
+                    api_image_size = "4K"
+
                 image_config_args = {"aspect_ratio": "1:1"}
                 
-                # If using clean generated config logic, we might try to construct it carefully.
-                # But seeing the error "Extra inputs are not permitted [width, height]", 
-                # we must remove them.
-                
+                # Check for Gemini 3 Pro which supports native resolution
+                if "gemini-3-pro" in model_id and api_image_size in ["2K", "4K"]:
+                     image_config_args["image_size"] = api_image_size
+                     print(f"[Texture Pro] Requesting native {api_image_size} generation...")
+
                 cfg = types.GenerateContentConfig(
                     response_modalities=["IMAGE"],
                     image_config=types.ImageConfig(**image_config_args)

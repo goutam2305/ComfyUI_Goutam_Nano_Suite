@@ -32,6 +32,7 @@ from .gemini_zoomer import Gemini_Detail_Zoomer
 
 from .gemini_t2i import Goutam_TextToImage
 from .gemini_zenmode import ZenModeArchVizAllInOne
+from .gemini_multiview import Goutam_Nano_Suite_MultiView
 from .texture_nodes import GoutamSeamlessTexturePro
 
 NODE_CLASS_MAPPINGS = {
@@ -46,6 +47,7 @@ NODE_CLASS_MAPPINGS = {
     "Gemini_Ultimate_Vision": Gemini_Ultimate_Vision,
     "Goutam_TextToImage": Goutam_TextToImage,
     "ZenModeArchVizAllInOne": ZenModeArchVizAllInOne,
+    "Goutam_Nano_Suite_MultiView": Goutam_Nano_Suite_MultiView,
     "GoutamSeamlessTexturePro": GoutamSeamlessTexturePro,
 }
 
@@ -60,7 +62,8 @@ NODE_DISPLAY_NAME_MAPPINGS = {
     "Gemini_Ultimate_VideoGen": "🎬 Goutam_Nano_Suite Ultimate VideoGen",
     "Gemini_Ultimate_Vision": "👁️ Goutam_Nano_Suite Ultimate Vision",
     "Goutam_TextToImage": "🖼️ Goutam_Nano_Suite Text to Image",
-    "ZenModeArchVizAllInOne": "🏰 Goutam_Nano_Suite ZenMode All-In-One",
+    "ZenModeArchVizAllInOne": "🏰 Goutam_Get inspired",
+    "Goutam_Nano_Suite_MultiView": "🏰 Goutam_Nano_Suite MultiView",
     "GoutamSeamlessTexturePro": "💎 Goutam Texture Synthesizer (Pro)",
 }
 
