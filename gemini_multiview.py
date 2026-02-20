@@ -164,14 +164,16 @@ class Goutam_Nano_Suite_MultiView:
                     "floating in empty space, zero gravity, perfectly aligned to grid, "
                     "completely isolated on a flat neutral mid-grey background. "
                     "Studio flat lighting, shadowless, completely devoid of cast shadows, "
-                    "no floor, no ground plane. Hyper-detailed, precise proportions, "
-                    "crisp sharp edges, industrial design blueprint aesthetic, non-perspective."
+                    "no floor, no ground plane. Hyper-detailed photorealistic textures, "
+                    "8k resolution, precise proportions, matching exact materials, "
+                    "colors, and physical textures from the input images, non-perspective."
                 )
 
                 full_positive = f"{prompt} {positive_suffix}"
 
                 negative_suffix = (
-                    ", perspective, foreshortening, dynamic angle, ground plane, floor, "
+                    ", blueprint, sketch, illustration, vector, 2D graphic, stylized, "
+                    "perspective, foreshortening, dynamic angle, ground plane, floor, "
                     "cast shadows, ambient occlusion shadows, depth of field, tilted camera, "
                     "fish-eye lens, asymmetrical."
                 )
